@@ -33,6 +33,12 @@ MAX_Y_AXIS = 300
 plt.ion()
 
 fig, ax = plt.subplots()
+
+
+# disable autofocus
+if hasattr(fig.canvas.manager, 'raise_window'):
+    fig.canvas.manager.raise_window = lambda *a, **k: None
+
 data = {
     'timestamp': [],
     'setpoint': [],
@@ -48,8 +54,6 @@ ax.set_xlabel('Time (s)')
 ax.set_ylabel('RPM')
 ax.set_title('Setpoint, Currpoint, Error, Output')
 ax.set_ylim(MIN_Y_AXIS, MAX_Y_AXIS)
-# ax.set_autoscale_on(False)
-matplotlib.use("Qt5agg")
 
 device = serial.Serial('/dev/ttyUSB1', 115200, timeout=1)
 
