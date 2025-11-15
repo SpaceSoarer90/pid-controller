@@ -163,8 +163,8 @@ void enc_pulse_ISR() {
 void sample_enc_ISR() {
   const float DELTA_T = pid.sampling_interval / 1000.0f;
   const float EMA_CONSTANT = 0.35;
-  // const float TICKS_PER_REV = 40.0f; // it counts both the falling and rising edges
-  const float TICKS_PER_REV = 20.0f;
+  const float TICKS_PER_REV = 40.0f; // it counts both the falling and rising edges
+  // const float TICKS_PER_REV = 20.0f;
 
   motor.enc.delta_pulses = motor.enc.curr_pulses - motor.enc.last_pulses;
   motor.enc.last_pulses = motor.enc.curr_pulses;
@@ -327,6 +327,12 @@ void print_data() {
   Serial.print(',');
 
   Serial.print(pid.raw_output, 5);
+  Serial.print(',');
+  Serial.print(pid.proportional, 5);
+  Serial.print(',');
+  Serial.print(pid.integral, 5);
+  Serial.print(',');
+  Serial.print(pid.derivative, 5);
   Serial.print(',');
   Serial.print(pid.telemetry.p_term, 5);
   Serial.print(',');

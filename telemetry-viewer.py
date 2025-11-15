@@ -1,5 +1,4 @@
 from enum import IntEnum
-import matplotlib
 import matplotlib.pyplot as plt
 import serial
 import time
@@ -55,14 +54,14 @@ ax.set_ylabel('RPM')
 ax.set_title('Setpoint, Currpoint, Error, Output')
 ax.set_ylim(MIN_Y_AXIS, MAX_Y_AXIS)
 
-device = serial.Serial('/dev/ttyUSB1', 115200, timeout=1)
+device = serial.Serial('/dev/ttyUSB0', 115200, timeout=1)
 
 time.sleep(2)
 
 print("sending to device!")
 device.write(b'r')
 time.sleep(0.1) #yes, i know it sucks... bear with me pls
-device.write(b'200!')
+device.write(b'100!')
 
 update_plot_time = 1.0 #default value
 
