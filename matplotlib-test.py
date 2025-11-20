@@ -80,7 +80,7 @@ time.sleep(2.0)
 print('Sending RPM Command to device!')
 device.write(b'r')
 time.sleep(0.1)
-device.write(b'250!')
+device.write(b'200!')
 
 ########################################################
 class DataColumn(IntEnum):

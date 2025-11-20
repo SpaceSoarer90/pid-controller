@@ -1,12 +1,12 @@
 #include "PinChangeInterrupt.h"
 #include <TimerOne.h>
 
-#define MOTOR_PIN_MINUS    7
-#define MOTOR_PIN_PLUS     8
+#define MOTOR_PIN_MINUS    4
+#define MOTOR_PIN_PLUS     5
 #define MOTOR_PIN_PWM      3
 #define MOTOR_PIN_ENC      12
 
-#define SAMPLING_INDICATOR_LED  4
+#define SAMPLING_INDICATOR_LED  6
 
 typedef struct {
   float kp, ki, kd;
